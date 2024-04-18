@@ -4,7 +4,7 @@ import MovieDetails from './components/MovieDetails.vue';
 
 const routes = [
     { path: '/', component: MovieList },
-    { path: '/movie/details/:movieId', name: 'MovieDetails', component: MovieDetails }
+    { path: '/movie/:movieId', name: 'MovieDetails', component: MovieDetails }
   ];
 
 const router = createRouter({
