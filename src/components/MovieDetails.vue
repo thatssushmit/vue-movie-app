@@ -1,6 +1,5 @@
 <template>
     <article>
-      <h1 class="neumorphism-heading">Movie Details</h1>
       <section class="movie-details neumorphism" v-if="movie">
         <figure class="movie-details__poster neumorphism-img">
           <img :src="movie.Poster" :alt="movie.Title" />
@@ -47,65 +46,6 @@
   </script>
   
   <style lang="scss" scoped>
-  .movie-details {
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
-    background-color: #f0f0f0;
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 10px 10px 20px #b7b7b7, -10px -10px 20px #ffffff;
   
-    &__poster {
-      flex: 0 0 300px;
-      margin-right: 1rem;
-  
-      img {
-        display: block;
-        width: 100%;
-        height: auto;
-        border-radius: 12px;
-        box-shadow: 6px 6px 12px #b7b7b7, -6px -6px 12px #ffffff;
-      }
-    }
-  
-    &__info {
-      flex: 1;
-  
-      .neumorphism-heading {
-        font-size: 24px;
-        color: #333333;
-        text-shadow: 2px 2px 4px #ffffff, -2px -2px 4px #e0e0e0;
-        margin-bottom: 1rem;
-      }
-  
-      .neumorphism-text {
-        color: #555555;
-        text-shadow: 1px 1px 2px #ffffff, -1px -1px 2px #e0e0e0;
-        margin-bottom: 0.5rem;
-      }
-  
-      .details {
-        .detail {
-          margin-bottom: 0.5rem;
-  
-          .label {
-            font-weight: bold;
-            color: #666666;
-            margin-right: 0.5rem;
-          }
-        }
-      }
-    }
-  
-    // Media query for smaller screens
-    @media screen and (max-width: 768px) {
-      flex-direction: column; /* Stack items vertically */
-      align-items: center; /* Center items horizontally */
-      
-      &__poster {
-        margin-bottom: 1rem; /* Add some space between poster and info */
-      }
-    }
-  }
   </style>
   

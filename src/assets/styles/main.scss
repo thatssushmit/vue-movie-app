@@ -1,17 +1,181 @@
 @import 'variables';
 
+
 // Global Styles
 body {
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
+  color: $text-color;
+}
+
+nav {
+  background-color: $primary-color;
+  padding: 1rem;
+  box-shadow: 0 4px 6px -6px $neumorphism-shadow-light;
+  
+  a {
     color: $secondary-color;
+    text-decoration: none;
   }
+}
+
+// Neumorphism Navbar
+.neumorphism-navbar {
+  background-color: $primary-color;
+  border-radius: 20px 20px 0 0;
+  padding: 10px 20px;
+  box-shadow: 10px 10px 20px $neumorphism-shadow-dark, -10px -10px 20px $neumorphism-shadow-light;
+  margin-bottom: 20px;
+  text-align: center;
   
-  nav {
-    background-color: $primary-color;
-    padding: 1rem;
-  
-    a {
-      color: white;
-      text-decoration: none;
+  .neumorphism-link {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+    font-size: 1.125rem;
+    text-shadow: 2px 2px 4px $neumorphism-shadow-light, -2px -2px 4px $neumorphism-shadow-dark;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: translateY(-3px);
     }
   }
+}
+
+// Movie List
+.movie-list {
+  &.neumorphism {
+    background-color: $primary-color;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 10px 10px 20px $neumorphism-shadow-dark, -10px -10px 20px $neumorphism-shadow-light;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: 14px 14px 28px $neumorphism-shadow-dark, -14px -14px 28px $neumorphism-shadow-light;
+    }
+
+    .neumorphism-heading {
+      font-size: 1.75rem;
+      margin-bottom: 20px;
+      color: $text-color;
+      text-align: center;
+      text-shadow: 2px 2px 4px $neumorphism-shadow-light, -2px -2px 4px $neumorphism-shadow-dark;
+    }
+
+    .neumorphism-item {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: translateY(-3px);
+      }
+    }
+
+    .thumbnail-wrapper {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        margin-bottom: 10px;
+        transition: transform 0.3s ease;
+  
+        &:hover {
+          transform: scale(1.05);
+        }
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        max-height: 25rem; 
+        object-fit: cover;
+        transition: opacity 0.3s ease;
+      }
+
+      &:hover img {
+        opacity: 0.8;
+      }
+
+      &:active img {
+        opacity: 0.6;
+      }
+    }
+
+    .neumorphism-text {
+      color: $text-color-light;
+      text-align: center;
+      text-shadow: 1px 1px 2px $neumorphism-shadow-light, -1px -1px 2px $neumorphism-shadow-dark;
+    }
+  }
+
+  .movie-list__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+    grid-gap: 1.5rem;
+  }
+
+  .movie-list__item {
+    margin-bottom: 1.5rem;
+  }
+}
+
+// Movie Details
+.movie-details {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 10px 10px 20px $neumorphism-shadow-dark, -10px -10px 20px $neumorphism-shadow-light;
+
+  &__poster {
+    flex: 0 0 30rem;
+    margin-right: 1rem;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 6px 6px 12px $neumorphism-shadow-dark, -6px -6px 12px $neumorphism-shadow-light;
+    }
+  }
+
+  &__info {
+    flex: 1;
+
+    .neumorphism-heading {
+      font-size: 1.5rem;
+      color: $text-color;
+      text-shadow: 2px 2px 4px $neumorphism-shadow-light, -2px -2px 4px $neumorphism-shadow-dark;
+      margin-bottom: 1rem;
+    }
+
+    .neumorphism-text {
+      color: $text-color-light;
+      text-shadow: 1px 1px 2px $neumorphism-shadow-light, -1px -1px 2px $neumorphism-shadow-dark;
+      margin-bottom: 0.5rem;
+    }
+
+    .details {
+      .detail {
+        margin-bottom: 0.5rem;
+
+        .label {
+          font-weight: bold;
+          color: $text-color-lighter;
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+
+  // Media query for smaller screens
+  @media screen and (max-width: 48rem) {
+    .movie-details__poster {
+      margin-bottom: 1rem;
+    }
+  }
+}
