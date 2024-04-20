@@ -24,14 +24,13 @@ nav {
   border-radius: 20px 20px 0 0;
   padding: 10px 20px;
   box-shadow: 10px 10px 20px $neumorphism-shadow-dark, -10px -10px 20px $neumorphism-shadow-light;
-  margin-bottom: 20px;
   text-align: center;
   
   .neumorphism-link {
     text-decoration: none;
     color: inherit;
     font-weight: bold;
-    font-size: 1.125rem;
+    font-size: 2rem;
     text-shadow: 2px 2px 4px $neumorphism-shadow-light, -2px -2px 4px $neumorphism-shadow-dark;
     transition: transform 0.2s ease;
 
@@ -45,7 +44,7 @@ nav {
 .movie-list {
   &.neumorphism {
     background-color: $primary-color;
-    border-radius: 20px;
+    border-radius: 0 0 20px 20px;
     padding: 20px;
     box-shadow: 10px 10px 20px $neumorphism-shadow-dark, -10px -10px 20px $neumorphism-shadow-light;
     transition: box-shadow 0.3s ease;
