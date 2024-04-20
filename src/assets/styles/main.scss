@@ -123,19 +123,20 @@ nav {
 
 // Movie Details
 .movie-details {
-  display: flex;
-  flex-wrap: wrap;
-  background-color: #f0f0f0;
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 10px 10px 20px $neumorphism-shadow-dark, -10px -10px 20px $neumorphism-shadow-light;
-
+    display: flex;
+    flex-direction: column; // Use column layout by default for better stacking on mobile
+    align-items: center; // Center-align items to handle narrow screens
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 10px 10px 20px $neumorphism-shadow-dark, -10px -10px 20px $neumorphism-shadow-light;
+  
   &__poster {
-    flex: 0 0 30rem;
-    margin-right: 1rem;
-
+    width: 100%; // Ensure the poster takes full width on smaller screens
+    max-width: 30rem; // Max width for larger screens
+    margin-bottom: 1rem; // Space between the poster and the info section
     img {
-      display: block;
+        display: block;
       width: 100%;
       height: auto;
       border-radius: 12px;
@@ -144,17 +145,18 @@ nav {
   }
 
   &__info {
-    flex: 1;
+    width: 100%; // Ensure info section takes full width on smaller screens
+    text-align: center; // Center text for smaller screens
 
     .neumorphism-heading {
-      font-size: 1.5rem;
+        font-size: 1.5rem;
       color: $text-color;
       text-shadow: 2px 2px 4px $neumorphism-shadow-light, -2px -2px 4px $neumorphism-shadow-dark;
       margin-bottom: 1rem;
     }
 
     .neumorphism-text {
-      color: $text-color-light;
+        color: $text-color-light;
       text-shadow: 1px 1px 2px $neumorphism-shadow-light, -1px -1px 2px $neumorphism-shadow-dark;
       margin-bottom: 0.5rem;
     }
@@ -164,18 +166,25 @@ nav {
         margin-bottom: 0.5rem;
 
         .label {
-          font-weight: bold;
-          color: $text-color-lighter;
-          margin-right: 0.5rem;
+            font-weight: bold;
+            color: $text-color-lighter;
+            margin-right: 0.5rem;
         }
       }
     }
   }
 
-  // Media query for smaller screens
-  @media screen and (max-width: 48rem) {
-    .movie-details__poster {
-      margin-bottom: 1rem;
+  @media screen and (min-width: 48rem) {
+    flex-direction: row; // Use row layout for wider screens
+    align-items: flex-start; // Align items to the start of the flex container
+
+    &__poster {
+      margin-right: 1rem; // Maintain spacing between the poster and the info
+      margin-bottom: 0; // Remove bottom margin when in row layout
+    }
+
+    &__info {
+      text-align: left; // Align text to the left for wider screens
     }
   }
 }
